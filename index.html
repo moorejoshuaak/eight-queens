@@ -62,20 +62,22 @@
         counter-increment: field;
         width: calc(var(--board-dim)/8);
         height: calc(var(--board-dim)/8);
-
-        text-align: center;
-        text-justify: center;
-
         margin: 0;
         border: 0;
         padding: 0;
+        text-align: center;
+        text-justify: center;
+
+        align-content: center;
+        justify-content: center;
 
       }
 
       td.field::before {
         width: 100%;
+        height: 100%;
         justify-content: center;
-        /* content: counter(field); */
+        align-content: center;
       }
 
       tr:nth-child(odd)>td:nth-child(even){
@@ -93,10 +95,13 @@
       tr:nth-child(even)>td:nth-child(odd){
         color: white;
       }
+      */
 
+      /*
       .queen:before {
         content: none;
       }
+      */
 
       .queen {
         background: url(Crown1.png) no-repeat center/contain;
@@ -106,11 +111,14 @@
         padding: 0;
       }
 
+      /*
       html, body {
         height: 100%;
         overflow: hidden;
       }
+      */
 
+      /*
       ol#solutions {
         display: flex;
         columns: 2 auto;
@@ -129,7 +137,11 @@
         counter-increment: solution;
         content: counter(solution) ". ";
       }
+      */
 
+      li {
+        text-decoration: none;
+      }
       a {
         color: teal;
         text-decoration: none;
