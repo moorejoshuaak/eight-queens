@@ -14,7 +14,7 @@
 
       @media only screen and (min-height: 100vw){
         h1 {
-          display: none;
+          font-weight: 1.0;
         }
         
         div.info {
@@ -68,17 +68,6 @@
         float: right;
       }
 
-      td {
-        counter-increment: field;
-        width: var(--queen-size);
-        height: var(--queen-size);
-        
-        /*
-        width: calc(var(--board-dim)/8);
-        height: calc(var(--board-dim)/8);
-        */
-      }
-
       tr {
         margin: 0;
         padding: 0;
@@ -86,6 +75,9 @@
       }
 
       td {
+        counter-increment: field;
+        width: var(--queen-size);
+        height: var(--queen-size);
         margin: 0;
         padding: 0;
         border: 0;
@@ -152,12 +144,12 @@
         width: fit-content;
         align-self: flex-start;
       }
-
+*/
       ol#solutions>li::before {
         counter-increment: solution;
         content: counter(solution) ". ";
       }
-      */
+      
 
       li {
         text-decoration: none;
