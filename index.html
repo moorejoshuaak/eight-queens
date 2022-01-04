@@ -12,6 +12,16 @@
         --queen-size: calc(var(--board-size)/10);
       }
 
+      @media only screen and (min-height: 100vw){
+        h1 {
+          display: none;
+        }
+        
+        div.info {
+          display: none;
+        }
+      }
+
       h1 {
         text-align: right;
       }
@@ -60,19 +70,28 @@
 
       td {
         counter-increment: field;
+        width: var(--queen-size);
+        height: var(--queen-size);
+        
+        /*
         width: calc(var(--board-dim)/8);
         height: calc(var(--board-dim)/8);
-        margin: 0;
-        border: 0;
-        padding: 0;
-        text-align: center;
-        text-justify: center;
-
-        align-content: center;
-        justify-content: center;
-
+        */
       }
 
+      tr {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      td {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+/*
       td.field::before {
         width: 100%;
         height: 100%;
@@ -80,6 +99,7 @@
         align-content: center;
       }
 
+      
       tr:nth-child(odd)>td:nth-child(even){
         color: white;
       }
@@ -167,7 +187,7 @@
       <div class="box">
 
         <h1>The Eight Queens Riddle</h1>
-        <span class="info">
+        <div class="info">
           <p>
             The Eight Queens Problem is a Chess riddle. Place eight queens 
             (by clicking fields) so that no two of them pose a threat to each other.
@@ -176,12 +196,13 @@
             The queen has the widest reach on the chess board, and can move vertically, 
             horizontally, and vertically, across the entire board. 
           </p>
-          <p class="status-container">
-            {<label class="status-label">Is free of conflict: ✓</label><i id="status"></i>}
-            {<label class="complete-label">Is complete: ✗</label><i id="complete"></i>}
-            {<a id="clearBoard" class="link-dark" href="#">Clear all fields</a>}
-          </p>
-        </span>
+          
+        </div>
+        <p class="status-container">
+          {<label class="status-label">Is free of conflict: ✓</label><i id="status"></i>}
+          {<label class="complete-label">Is complete: ✗</label><i id="complete"></i>}
+          {<a id="clearBoard" class="link-dark" href="#">Clear all fields</a>}
+        </p>
         <table id="board">
           <tr>
             <td class="field">&nbsp;</td>
