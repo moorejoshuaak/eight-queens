@@ -11,10 +11,10 @@ var Field = class {
       'down': Math.floor(i / 8) < 7 ? i + 8 : undefined,
       'left': i % 8 > 0 ? i - 1 : undefined,
       'right': i % 8 < 7 ? i + 1 : undefined,
-      'up-left': (Math.floor(i / 8) >= 0) && (i % 8 >= 0) ? i - 9 : undefined,
-      'up-right': (Math.floor(i / 8) >= 0) && (i % 8 <= 7) ? i - 7 : undefined,
-      'down-left': (Math.ceil(i / 8) <= 7) && (i % 8 >= 0) ? i + 7 : undefined,
-      'down-right': (Math.ceil(i / 8) <= 7) && (i % 8 <= 7) ? i + 9 : undefined
+      'up-left': (Math.floor(i / 8) > 0) && (i % 8 > 0) ? i - 9 : undefined,
+      'up-right': (Math.floor(i / 8) > 0) && (i % 8 < 7) ? i - 7 : undefined,
+      'down-left': (Math.ceil(i / 8) < 7) && (i % 8 > 0) ? i + 7 : undefined,
+      'down-right': (Math.ceil(i / 8) < 7) && (i % 8 < 7) ? i + 9 : undefined
     }
   }
 }
@@ -117,10 +117,11 @@ onmessage = function(e){
       var board = new Board();
 
       var potential = e.data.potential;
-      console.log(potential);
-      var isSolution = potential.flat().every(i => 
-        potential.flat().filter(j => j != i).every(j =>
-          !board.threatened(i).has(j)))
+      var isSolution = potential.flat().every(i => {
+        return potential.flat().filter(j => j != i).every(j => {
+          return !board.threatened(i).has(j)
+        })
+      })
 
       var isComplete = isSolution && (potential.length === 8);
 

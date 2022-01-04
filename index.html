@@ -74,8 +74,8 @@
         border: 0;
       }
 
-      td {
-        counter-increment: field;
+      td.field  {
+        counter-increment: field 1;
         width: var(--queen-size);
         height: var(--queen-size);
         margin: 0;
@@ -83,14 +83,16 @@
         border: 0;
       }
 
-/*
+
       td.field::before {
+        /*
         width: 100%;
         height: 100%;
+        */
         justify-content: center;
         align-content: center;
       }
-
+/*
       
       tr:nth-child(odd)>td:nth-child(even){
         color: white;
